@@ -40,14 +40,15 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("users", new HashMap<String,User>());
 		}
 
-		
+		session.setAttribute("message", "");
 		//lowercase name and email for simplicity
-		String email = request.getParameter("username").toLowerCase();
+		String email = request.getParameter("username");
 		String pass = request.getParameter("pass");
 
 		String name = email.split("@")[0];
 		String message = "Failed to login. Incorrect username or password.\n";
 		
+		session.setAttribute("failure", 0);
 		
 		
 		
@@ -67,22 +68,37 @@ public class LoginServlet extends HttpServlet {
 				User inDB = users.get(email);
 				//password will be encrypted/hashed
 				if(!inDB.validateUser(name, email, "password")){
-					request.setAttribute("message", message);
-					request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
-					return;
+					session.setAttribute("message", message);
+					
+					//doesnt change url
+					//request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+					session.setAttribute("failure", 1);
+							
+					//changes url back to login pages
+					response.sendRedirect(request.getContextPath() + "/login.jsp");
 				}
 			
 			}
 			session.setAttribute("users",users);
 			session.setAttribute("user",temp);
 			
+			session.setAttribute("failure", 0);
 			
-			request.getServletContext().getRequestDispatcher("/output.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath() + "/home.jsp");
+		
+			
+			//request.getServletContext().getRequestDispatcher("/output.jsp").forward(request, response);
 		
 		}
 		else{
-			request.setAttribute("message", message);
-			request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+			session.setAttribute("message", message);
+			
+			//doesnt change url
+			//request.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+			session.setAttribute("failure", 1);
+			
+			//changes url back to login pages
+			response.sendRedirect(request.getContextPath() + "/login.jsp");
 		}
 	
 		
