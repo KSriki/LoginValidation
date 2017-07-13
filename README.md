@@ -11,3 +11,5 @@ It will use Oracle Database 12c.
 The Bullhorn site will introduce us to servlets as well. We'll learn how to communicate between servlets and html forms on JSPs or other servlets. We'll learn how to pass objects between pages of a web application and how to make the web application maintain state using sessions and cookies.
 
 We will develop all our web pages to be HTML5 compliant and explore frameworks for making it easy for developers to create nice looking UI (user interface) even if they have no artistic ability.
+
+Created during training, InfoSys Public services at Montgomery college

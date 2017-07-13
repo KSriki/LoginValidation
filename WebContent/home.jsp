@@ -8,7 +8,8 @@
 <title>BullHorn Home Page</title>
 </head>
 <body>
-<img src="http://icons.iconarchive.com/icons/sora-meliae/matrilineare/1024/avatar-default-icon.png" width="100px" alt="default avatar image"/> <br />
+<!--<img src="http://icons.iconarchive.com/icons/sora-meliae/matrilineare/1024/avatar-default-icon.png" width="100px" alt="default avatar image"/> <br />
+  -->
 Welcome to BullHorn, ${user.getName()}! How are you today?
 <br />
 <c:forEach var="us" items="${users}">
