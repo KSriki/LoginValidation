@@ -8,6 +8,7 @@
 </head>
 <body>
 <img src="http://icons.iconarchive.com/icons/sora-meliae/matrilineare/1024/avatar-default-icon.png" width="100px" alt="default avatar image"/> <br />
-${message}
+Welcome to BullHorn, ${user.getName()}! How are you today?
+
 </body>
 </html>
