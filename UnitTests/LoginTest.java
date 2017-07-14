@@ -11,9 +11,11 @@ public class LoginTest {
 		
 		User user = new User("John","john@smith.com");
 		
-		assertTrue();
+		User john = new User("john", "John@smith.com");
 		
+		assertTrue(user.validateUser(john));
 		
+		assertTrue(!john.validateUser(new User("mandingo","John@smith.com")));
 	}
 
 }

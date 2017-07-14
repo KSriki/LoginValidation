@@ -30,7 +30,7 @@ public class User {
 	
 	
 	//Need to check against database
-	
+	//will add password checking later
 	public boolean validateUser(String name, String email, String encPass){
 		//probably want to encrypt and compare than compare literal raw input
 		
@@ -51,7 +51,7 @@ public class User {
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
 		if(obj instanceof User){
-			return this.email.equals(((User) obj).getEmail()) && this.name.equals(((User) obj).getName());
+			return this.email.toLowerCase().equals(((User) obj).getEmail().toLowerCase()) && this.name.toLowerCase().equals(((User) obj).getName().toLowerCase());
 		}
 		else{
 			return false;

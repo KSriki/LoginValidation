@@ -2,7 +2,10 @@
 
 body {
 	background-color:blue;
-	font-color: yellow;
+	color: #FFDF00;
 	
 }
 
+input {
+	color: #000000;
+}
